@@ -8,8 +8,14 @@
   color: #525252;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
 p {
   font-size: 1vw;
+  letter-spacing: 0.02vw;
+  line-height: 1.5vw;
 }
 
 body {
@@ -31,7 +37,98 @@ main {
 
 #pitches {
   width: 60%;
-  height: 50vw;
+  height: 30vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: auto;
+  position: relative;
+}
+
+@keyframes bounce {
+  0% {
+    bottom: 30%;
+  }
+  50% {
+    bottom: 35%;
+  }
+  100% {
+    bottom: 30%;
+  }
+}
+
+#pitches .arrow {
+  position: fixed;
+  right: 50%;
+  margin-right: -5%;
+  bottom: 30%;
+  animation: bounce 1s infinite;
+}
+
+#pitches .arrow svg {
+  color: #ff4500;
+  width: 3vw;
+}
+
+#pitches h2 {
+  font-size: 1.5vw;
+  width: 60%;
+}
+
+#pitches h2 span {
+  color: #ff4500;
+}
+
+#pitches .pitch-div {
+  width: 60%;
+  margin-top: 5%;
+}
+
+#pitches .pitch-div .stats {
+  margin-top: 3%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#pitches .pitch-div .stats .likes,
+#pitches .pitch-div .stats .dislikes {
+  margin-right: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#pitches .pitch-div .stats .likes svg,
+#pitches .pitch-div .stats .dislikes svg {
+  color: #ff4500;
+  width: 2vw;
+}
+
+#pitches .pitch-div .stats .likes span,
+#pitches .pitch-div .stats .dislikes span {
+  margin-left: 10%;
+  font-size: 0.8vw;
+  letter-spacing: 0.05vw;
+}
+
+#pitches .pitch-div hr {
+  margin-top: 5%;
+  width: 98%;
+  height: 0.05vw;
+  border: none;
+  outline: none;
+  background-color: #dbdbdb;
+}
+
+#pitches p.cta {
+  width: 60%;
+  margin-top: 5%;
+  color: #ff4500;
+  font-weight: 700;
+  text-align: left;
 }
 
 #login {
@@ -56,7 +153,6 @@ main {
 
 #login form {
   width: 60%;
-  /* height: 70%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -124,7 +220,3 @@ main {
 #login #signup-form {
   display: none;
 }
-
-/* #login #login-form {
-  display: none;
-} */

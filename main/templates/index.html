@@ -17,10 +17,67 @@
   <body>
     <main>
       <section id="pitces"></section>
-      <hr class="divider" />
       <section id="login">
-        
+        <!-- login form -->
+        <form action="" id="login-form">
+          <h1>Sign In</h1>
+          <label for="l-email">
+            <span>Email</span>
+            <input
+              type="email"
+              id="l-email"
+              placeholder="example@yourdomain.com"
+            />
+          </label>
+
+          <label for="l-password">
+            <span>Password</span>
+            <input
+              type="password"
+              id="l-password"
+              placeholder="your password"
+            />
+          </label>
+
+          <input type="submit" value="login" class="submit" />
+          <p>
+            Don't have an account yet? &nbsp;<span id="signup-toggle">
+              Sign Up</span
+            >
+          </p>
+        </form>
+
+        <!-- signup form -->
+        <form action="" id="signup-form">
+          <h1>Sign Up</h1>
+          <label for="s-name">
+            <span>Full Name</span>
+            <input type="text" id="s-name" placeholder="John Doe" />
+          </label>
+          <label for="email">
+            <span>Email</span>
+            <input
+              type="s-email"
+              id="s-email"
+              placeholder="example@yourdomain.com"
+            />
+          </label>
+
+          <label for="s-password">
+            <span>Password</span>
+            <input
+              type="password"
+              id="s-password"
+              placeholder="your password"
+            />
+          </label>
+
+          <input type="submit" value="Sign Up" class="submit" />
+          <p>Already a member? &nbsp;<span id="login-toggle"> Sign In</span></p>
+        </form>
       </section>
     </main>
+
+    <script src="{{url_for('static', filename='js/index.js')}}"></script>
   </body>
 </html>

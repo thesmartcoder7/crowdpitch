@@ -1,6 +1,8 @@
 let categories = document.querySelectorAll(".main-content");
 let links = document.querySelectorAll(".nav");
 
+let commentToggle = document.querySelectorAll(".show-comments");
+
 for (let i = 0; i < links.length; i++) {
   links[i].addEventListener("click", (e) => {
     if (e.target.textContent === "my pitches") {
@@ -57,6 +59,23 @@ for (let i = 0; i < links.length; i++) {
           categories[k].classList.add("active");
         }
       }
+    }
+  });
+}
+
+for (let i = 0; i < commentToggle.length; i++) {
+  commentToggle[i].addEventListener("click", (e) => {
+    if (
+      e.target.parentElement.parentElement.lastElementChild.style.display !=
+      "block"
+    ) {
+      e.target.parentElement.parentElement.lastElementChild.style.display =
+        "block";
+      e.target.textContent = "Hide Comments";
+    } else {
+      e.target.parentElement.parentElement.lastElementChild.style.display =
+        "none";
+      e.target.textContent = "Show Comments";
     }
   });
 }

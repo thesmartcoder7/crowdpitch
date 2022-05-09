@@ -1971,7 +1971,17 @@
           </div>
         </div>
       </section>
-      <section id="share-pitch"></section>
+      <section id="share-pitch">
+        <h3>Share a pitch</h3>
+        <form action="" id="pitch-form">
+          <textarea
+            name="pitch-form"
+            id="pitch-form"
+            placeholder="Your pitch . . . "
+          ></textarea>
+          <input type="submit" value="share" />
+        </form>
+      </section>
     </main>
     <script src="{{url_for('static', filename='js/user.js')}}"></script>
   </body>

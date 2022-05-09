@@ -143,8 +143,18 @@ main {
   margin-top: 5vw;
   cursor: pointer;
   color: #ff4500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-#user-profile .mini-nav .user-logout:hover {
+
+#user-profile .mini-nav .user-logout a {
+  color: #ff4500;
+  text-decoration: none;
+  font-size: 1vw;
+}
+
+#user-profile .mini-nav .user-logout a:hover {
   color: #525252;
 }
 

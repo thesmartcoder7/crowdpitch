@@ -19,7 +19,7 @@
       <section id="user-profile">
         <div class="avatar">
           <img src="../static/images/headshot.jpeg" alt="" />
-          <p class="username">Samuel Martins</p>
+          <p class="username">{{user}}</p>
           <p class="upload">Update Image</p>
         </div>
         <div class="upload-image">
@@ -35,7 +35,9 @@
             <li class="nav">sales</li>
             <li class="nav">employees</li>
           </ul>
-          <p class="user-logout">Sign Out</p>
+          <span class="user-logout"
+            ><a href="{{url_for('sign_out')}}">Sign Out</a></span
+          >
         </div>
       </section>
       <section id="main-view">

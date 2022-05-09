@@ -1,29 +1,37 @@
-from flask import render_template
+from flask import render_template, url_for, redirect, request, session
+from .models import App
 from . import app
-import jyserver.Flask as jsf
+from config import Config
+
+app.secret_key = Config.SECRET_KEY
 
 
-@jsf.use(app)
-class App:
-    def __init__(self):
-        self.up_count = 0
-        self.down_count = 0
-
-    def upvote(self):
-        self.up_count = self.up_count + 1
-        self.js.document.querySelector('#upvote').innerHTML = self.up_count
-
-    def downvote(self):
-        self.down_count = self.down_count + 1
-        print(self.down_count)
-        self.js.document.querySelector('#downvote').innerHTML = self.down_count
-
-
-@app.route('/')
+@app.route('/', methods=["POST", "GET"])
 def home():
-    return render_template('index.html')
+    if request.method == 'POST':
+        session["user"] = request.form["s-name"]
+        session["email"] = request.form["s-email"]
+        session["password"] = request.form["s-password"]
+        # if request.form["l-email"] and request.form["l-password"]:
+        #     session["email"] = request.form["l-email"]
+        #     session["password"] = request.form["l-password"]
+         
+        return redirect(url_for('user', username = session["user"]))
+    else:
+        return render_template('index.html')
 
 
 @app.route('/user')
 def user():
-    return App.render(render_template('user.html'))
+    if 'user' in session:
+        username = session["user"]
+        print(username)
+        return App.render(render_template('user.html', user = username))
+    else:
+        return redirect(url_for('home'))
+
+
+@app.route('/logout')
+def sign_out():
+    session.clear()
+    return redirect(url_for('home'))

@@ -159,13 +159,14 @@
       </section>
       <section id="login">
         <!-- login form -->
-        <form action="" id="login-form">
+        <form action="#" id="login-form" method="POST">
           <h1>Sign In</h1>
           <label for="l-email">
             <span>Email</span>
             <input
               type="email"
               id="l-email"
+              name="l-email"
               placeholder="example@yourdomain.com"
             />
           </label>
@@ -175,6 +176,7 @@
             <input
               type="password"
               id="l-password"
+              name="l-password"
               placeholder="your password"
             />
           </label>
@@ -188,17 +190,23 @@
         </form>
 
         <!-- signup form -->
-        <form action="" id="signup-form">
+        <form action="#" id="signup-form" method="POST">
           <h1>Sign Up</h1>
           <label for="s-name">
             <span>Full Name</span>
-            <input type="text" id="s-name" placeholder="John Doe" />
+            <input
+              type="text"
+              id="s-name"
+              name="s-name"
+              placeholder="John Doe"
+            />
           </label>
           <label for="s-email">
             <span>Email</span>
             <input
               type="email"
               id="s-email"
+              name="s-email"
               placeholder="example@yourdomain.com"
             />
           </label>
@@ -208,6 +216,7 @@
             <input
               type="password"
               id="s-password"
+              name="s-password"
               placeholder="your password"
             />
           </label>

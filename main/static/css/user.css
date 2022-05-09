@@ -93,6 +93,7 @@ main {
   align-items: flex-start;
   justify-content: center;
   margin-top: 5%;
+  animation: appear 0.5s;
 
   display: none;
 }

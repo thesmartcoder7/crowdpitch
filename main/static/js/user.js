@@ -2,6 +2,8 @@ let categories = document.querySelectorAll(".main-content");
 let links = document.querySelectorAll(".nav");
 
 let commentToggle = document.querySelectorAll(".show-comments");
+let upload = document.querySelector(".upload");
+let imageUpload = document.querySelector(".upload-image");
 
 for (let i = 0; i < links.length; i++) {
   links[i].addEventListener("click", (e) => {
@@ -79,3 +81,13 @@ for (let i = 0; i < commentToggle.length; i++) {
     }
   });
 }
+
+upload.addEventListener("click", (e) => {
+  if (imageUpload.style.display != "flex") {
+    imageUpload.style.display = "flex";
+    e.target.textContent = "Cancel";
+  } else {
+    imageUpload.style.display = "none";
+    e.target.textContent = "Upload Image";
+  }
+});

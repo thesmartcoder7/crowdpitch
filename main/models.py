@@ -18,19 +18,47 @@ class App:
         self.js.document.querySelector('.downvote').innerHTML = self.down_count
 
 
-# model class for user
-# model class for categories
-# model class for pitches
-# model class for votes
-# model class for comments
+class Pitch(db.Model):
+    __tablename__ = 'pitches'
+    id = db.Column(db.Integer, primary_key = True)
+    category_id = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable = False)
+    category = db.relationship('categories', backref = db.backref('pitch'), lazy = True)
+    comment_id = db.Column(db.Integer, db.ForeignKey('comments.id'), nullable = False)
+    comment = db.relationship('comments', backref = db.backref('pitch'), lazy = True)
+    vote_id = db.Column(db.Integer, db.ForeignKey('votes.id'), nullable = False)
+    vote = db.relationship('votes', backref = db.backref('pitch'), lazy = True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
+    user = db.relationship('users', backref = db.backref('pitch'), lazy = True)
+
 
 class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String, unique = True)
+    email = db.Column(db.String)
+    image = db.Column(db.String)
 
     def __init__(self, name):
         self.name = name
     
     def __str__(self) -> str:
         return self.name
+
+
+class Category(db.Model):
+    __tablename__ = 'categories'
+    id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String)
+
+
+class Vote(db.Model):
+    __tablename__ = 'votes'
+    id = db.Column(db.Integer, primary_key = True)
+    upvotes = db.Column(db.Integer)
+    downvotes = db.Column(db.Integer)
+
+
+class Comment(db.Model):
+    __tablename__ = 'comments'
+    id = db.Column(db.Integer, primary_key = True)
+    comment = db.Column(db.Text)

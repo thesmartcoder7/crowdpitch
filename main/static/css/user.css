@@ -241,6 +241,7 @@ main {
 #main-view .main-content .pitches .pitch-div .stats .dislikes svg {
   color: #e77d56;
   width: 2vw;
+  cursor: pointer;
 }
 
 #main-view .main-content .pitches .pitch-div .stats .likes span,

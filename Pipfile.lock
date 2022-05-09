@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5effc0613f778c5881fa69f7269a011d5fbb50dd1e492d51715feb8b5bea7033"
+            "sha256": "f1a2f0cd8191d84d9a207dc7d52694ca78777f7d858fa43891e2ea6c41563430"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -47,6 +47,14 @@
             ],
             "markers": "python_version >= '3.7'",
             "version": "==3.1.2"
+        },
+        "jyserver": {
+            "hashes": [
+                "sha256:865b07a4dca048f92c647d8f74d48825f517dc731d4c0a1e7766190db5e514df",
+                "sha256:fe84f32c5e88cd5054e7d0430b9c91523c7def55fc8ed806d73b742a93fd3204"
+            ],
+            "index": "pypi",
+            "version": "==0.0.5"
         },
         "markupsafe": {
             "hashes": [

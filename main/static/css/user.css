@@ -387,6 +387,16 @@ main {
   justify-content: flex-start;
 }
 
+#share-pitch form select {
+  outline: none;
+  border-color: #e77d56;
+  background-color: transparent;
+  border-radius: 0.5vw;
+  font-size: 0.9vw;
+  padding: 2%;
+  margin-bottom: 5%;
+}
+
 #share-pitch form textarea {
   width: 80%;
   height: 10vw;

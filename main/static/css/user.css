@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+  color: #525252;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+p {
+  font-size: 1vw;
+  letter-spacing: 0.02vw;
+  line-height: 1.5vw;
+}
+
+body {
+  background-image: url("../images/desktop-blob.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 2%;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border-radius: 1.5vw;
+  border: solid 0.1vw #ffc0a9;
+  backdrop-filter: blur(0.5vw);
+}
+
+#user-profile {
+  width: 20%;
+  height: 100%;
+}
+
+#main-view {
+  width: 50%;
+  height: 100%;
+}
+
+#share-pitch {
+  width: 30%;
+  height: 100%;
+}

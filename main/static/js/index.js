@@ -1,8 +1,8 @@
-loginToggle = document.querySelector("#login-toggle");
-signupToggle = document.querySelector("#signup-toggle");
+let loginToggle = document.querySelector("#login-toggle");
+let signupToggle = document.querySelector("#signup-toggle");
 
-loginForm = document.querySelector("#login-form");
-signupForm = document.querySelector("#signup-form");
+let loginForm = document.querySelector("#login-form");
+let signupForm = document.querySelector("#signup-form");
 
 loginToggle.addEventListener("click", () => {
   signupForm.style.display = "none";

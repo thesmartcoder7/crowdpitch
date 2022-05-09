@@ -18,6 +18,16 @@ p {
   line-height: 1.5vw;
 }
 
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 body {
   background-image: url("../images/desktop-blob.png");
   background-position: center center;
@@ -45,7 +55,7 @@ main {
 #user-profile {
   width: 20%;
   height: 80%;
-  border-right: solid 0.11vw #ffc0a9;
+  border-right: solid 0.1vw #ffc0a9;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -140,10 +150,217 @@ main {
 #main-view {
   width: 50%;
   height: 80%;
+  overflow: auto;
+}
+
+#main-view .main-content {
+  display: block;
+  position: relative;
+}
+
+#main-view .main-content h1 {
+  width: 50%;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 1.5vw;
+  color: #ff4500;
+  position: fixed;
+  padding: 2% 0;
+  background-color: #fff;
+  z-index: 2;
+  margin-top: -4%;
+}
+
+#main-view .main-content .pitches {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: auto;
+  position: relative;
+}
+
+@keyframes bounce {
+  0% {
+    bottom: 30%;
+  }
+  50% {
+    bottom: 35%;
+  }
+  100% {
+    bottom: 30%;
+  }
+}
+
+/* #pitches .arrow {
+  position: fixed;
+  right: 50%;
+  margin-right: -5%;
+  bottom: 30%;
+  animation: bounce 1s infinite;
+}
+
+#pitches .arrow svg {
+  color: #ff4500;
+  width: 2vw;
+} */
+
+/* #pitches h2 {
+  font-size: 1.5vw;
+  width: 60%;
+} */
+
+/* #pitches h2 span {
+  color: #ff4500;
+} */
+
+#main-view .main-content .pitches .pitch-div {
+  width: 70%;
+  margin-top: 5%;
+}
+
+#main-view .main-content .pitches .pitch-div .stats {
+  margin-top: 3%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#main-view .main-content .pitches .pitch-div .stats .likes,
+#main-view .main-content .pitches .pitch-div .stats .dislikes {
+  margin-right: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#main-view .main-content .pitches .pitch-div .stats .likes svg,
+#main-view .main-content .pitches .pitch-div .stats .dislikes svg {
+  color: #e77d56;
+  width: 2vw;
+}
+
+#main-view .main-content .pitches .pitch-div .stats .likes span,
+#main-view .main-content .pitches .pitch-div .stats .dislikes span {
+  margin-left: 10%;
+  font-size: 0.8vw;
+  letter-spacing: 0.05vw;
+}
+
+#main-view .main-content .pitches .pitch-div .stats .show-comments {
+  text-transform: capitalize;
+  color: #ff4500;
+  cursor: pointer;
+}
+
+#main-view .main-content .pitches .pitch-div .stats .show-comments:hover {
+  color: #525252;
+}
+
+#main-view .main-content .pitches .pitch-div .all-comments {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 5%;
+  /* border-left: solid 0.1vw #ffc0a9;
+  padding-left: 3%;
+  margin-bottom: 5%; */
+  display: none;
+}
+
+#main-view .main-content .pitches .pitch-div .all-comments h2 {
+  text-transform: capitalize;
+  font-size: 1vw;
+}
+
+#main-view .main-content .pitches .pitch-div .all-comments form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 5%;
+  width: 100%;
+}
+
+#main-view .main-content .pitches .pitch-div .all-comments form textarea {
+  width: 90%;
+  height: 5vw;
+  padding: 2%;
+  font-size: 0.9vw;
+  border-radius: 0.5vw;
+  outline: none;
+}
+
+#main-view .main-content .pitches .pitch-div .all-comments form input {
+  background-color: #ff4500;
+  color: #fff;
+  padding: 2% 5%;
+  font-size: 0.9vw;
+  outline: none;
+  border: none;
+  border-radius: 0.5vw;
+  margin-top: 2%;
+  cursor: pointer;
+}
+
+#main-view .main-content .pitches .pitch-div .all-comments .feedback {
+  height: 10vw;
+  overflow: auto;
+}
+
+#main-view
+  .main-content
+  .pitches
+  .pitch-div
+  .all-comments
+  .feedback
+  .comment-box {
+  border-left: solid 0.1vw #ffc0a9;
+  padding-left: 3%;
+  margin: 7% 0;
+}
+
+#main-view
+  .main-content
+  .pitches
+  .pitch-div
+  .all-comments
+  .feedback
+  .comment-box
+  span {
+  color: #ff4500;
+}
+
+#main-view .main-content .pitches .pitch-div hr {
+  margin-top: 5%;
+  width: 98%;
+  height: 0.05vw;
+  border: none;
+  outline: none;
+  background-color: #e9e9e9;
+}
+
+#mypitches,
+#allpitches,
+#investors,
+#customers,
+#sales,
+#employees {
+  display: none;
+}
+
+#main-view .main-content {
+  display: none;
+}
+
+#main-view .active {
+  display: block;
+  animation: appear 1s;
 }
 
 #share-pitch {
   width: 30%;
   height: 80%;
-  border-left: solid 0.11vw #ffc0a9;
+  border-left: solid 0.1vw #ffc0a9;
 }

@@ -1,3 +1,5 @@
+from crypt import methods
+import email
 from flask import render_template, url_for, redirect, request, session
 from . import app, db
 from .models import User
@@ -29,10 +31,13 @@ def signup():
 @app.route('/login', methods=["POST", "GET"])
 def login():
     if request.method == 'POST':
-        user = User.query.filter_by(name=request.form['l-name']).first()
+        print(request.form["l-email"])
+        user = User.query.filter_by(email=request.form['l-email']).first()
         if user:
-            if check_password_hash(user.password, generate_password_hash(request.form['l-password'])):
-                return redirect(url_for('user', username = user.name))
+            print(user.password)
+            print(check_password_hash(user.password, request.form['l-password']))
+            if check_password_hash(user.password, request.form['l-password']) == True:
+                return redirect(url_for('user', username = user.name), code=307)
             else:
                 # add password or username wrong flash message
                 return redirect(url_for('home'))
@@ -41,7 +46,6 @@ def login():
             return redirect(url_for('home'))
     else:
         return redirect(url_for('home'))
-
 
 
 @app.route('/logout')

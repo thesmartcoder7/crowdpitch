@@ -1,5 +1,5 @@
 from smtplib import SMTP
-from config import Config
+from .config import Config
 
 sender_email = Config.EMAIL
 password = Config.PASSWORD
@@ -17,7 +17,3 @@ def send_email(username, useremail):
             to_addrs=receiver,
             msg=f"Subject:{subject}\n\n{message}"
         )
-
-
-# send_email('Samuel', 'xatani1200@bunlets.com')
-send_email('Samuel', 'samuel.martins4@hotmail.com')

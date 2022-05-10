@@ -1,6 +1,5 @@
 from smtplib import SMTP
-# from .. import config
-from config import Config
+from ..config import Config
 
 sender_email = Config.EMAIL
 password = Config.PASSWORD

@@ -1,9 +1,11 @@
 from flask import url_for, redirect, request, session
 from . import app, db
 from .models import User
-from config import Config
+from ..config import Config
 from datetime import timedelta
-from werkzeug.security import generate_password_hash,check_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
+from ..greeting import send_email
+
 
 app.secret_key = Config.SECRET_KEY
 app.permanent_session_lifetime = timedelta(weeks=1)
@@ -20,6 +22,7 @@ def signup():
             user = User(request.form["s-name"], request.form["s-email"], generate_password_hash(request.form["s-password"]))
             db.session.add(user)
             db.session.commit()
+            send_email(user.name, user.email)
             return redirect(url_for('user', username = user.name))
     else:
         return redirect(url_for('home'))

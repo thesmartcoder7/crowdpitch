@@ -47,19 +47,6 @@ class User(db.Model):
         self.name = name
         self.email = email
         self.password = password
-
-
-    # @property
-    # def password(self):
-    #     raise AttributeError('You cannot read the password attribute')
-
-    # @password.setter
-    # def password(self):
-    #     self.password = generate_password_hash(self.user_password)
-
-
-    # def verify_password(self,password):
-    #     return check_password_hash(self.pass_secure,password)
     
     def __str__(self) -> str:
         return self.name

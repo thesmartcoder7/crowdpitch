@@ -1,7 +1,21 @@
+from crypt import methods
 from flask import render_template, url_for, redirect, request, session
 from .models import App
-from .models import User
-from . import app
+from .models import User, Pitch
+from . import app, db
+
+
+@app.route('/pitch', methods=['POST','GET'])
+def pitch():
+    if request.method == "POST":
+        present_user = User.query.filter_by(name=session.get('user')).first()
+        print(session.get('user'))
+        new_pitch = Pitch(category=request.form['category'], content=request.form['pitch-form'], user_id=present_user.id)       
+        db.session.add(new_pitch)
+        db.session.commit()
+        return redirect(url_for('user', username = session['user']), code=307)
+    else:
+        return redirect(url_for('user', username = session['user']), code=307)
 
 
 @app.route('/')

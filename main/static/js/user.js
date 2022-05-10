@@ -7,10 +7,10 @@ let imageUpload = document.querySelector(".upload-image");
 
 let pitch_form = document.querySelector("#pitch-form");
 
-pitch_form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  pitch_form.reset();
-});
+// pitch_form.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   pitch_form.reset();
+// });
 // let upvotes = document.querySelectorAll(".up_vote");
 
 // for (let i = 0; i < links.length; i++) {

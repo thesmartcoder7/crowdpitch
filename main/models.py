@@ -21,17 +21,15 @@ class App:
 class Pitch(db.Model):
     __tablename__ = 'pitches'
     id = db.Column(db.Integer, primary_key = True)
-    category_id = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable = False)
-    category = db.relationship('Category', backref = db.backref('pitch'), lazy = True)
-
-    comment_id = db.Column(db.Integer, db.ForeignKey('comments.id'), nullable = False)
-    comment = db.relationship('Comment', backref = db.backref('pitch'), lazy = True)
-
-    vote_id = db.Column(db.Integer, db.ForeignKey('votes.id'), nullable = False)
-    vote = db.relationship('Vote', backref = db.backref('pitch'), lazy = True)
-
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
-    user = db.relationship('User', backref = db.backref('pitch'), lazy = True)
+    category = db.Column(db.String,nullable = False)
+    content = db.Column(db.String,nullable = False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    comments  = db.relationship('Comment', backref = 'pitch', lazy = 'dynamic')
+    upvotes = db.relationship('UpVote', backref = 'pitch', lazy = 'dynamic')
+    downvotes = db.relationship('DownVote', backref = 'pitch', lazy = 'dynamic')
+    
+    def __str__(self) -> str:
+        return self.content
 
 
 
@@ -52,20 +50,28 @@ class User(db.Model):
         return self.name
 
 
-class Category(db.Model):
-    __tablename__ = 'categories'
-    id = db.Column(db.Integer, primary_key = True)
-    name = db.Column(db.String)
-
-
-class Vote(db.Model):
-    __tablename__ = 'votes'
-    id = db.Column(db.Integer, primary_key = True)
-    upvotes = db.Column(db.Integer)
-    downvotes = db.Column(db.Integer)
-
 
 class Comment(db.Model):
     __tablename__ = 'comments'
-    id = db.Column(db.Integer, primary_key = True)
-    comment = db.Column(db.Text)
+    id  = db.Column(db.Integer,primary_key = True)
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+    pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
+    comment = db.Column(db.String(255), nullable = False)
+
+
+
+class UpVote(db.Model):
+    __tablename__ = 'upvotes'
+    id = db.Column(db.Integer,primary_key =True)
+    upvote = db.Column(db.Integer,default = 0)
+    pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+
+   
+
+class DownVote(db.Model):
+    __tablename__ = 'downvotes'
+    id = db.Column(db.Integer,primary_key = True)
+    downvote = db.Column(db.Integer,default = 0)
+    pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))

@@ -35,6 +35,7 @@ def login():
         user = User.query.filter_by(email=request.form['l-email']).first()
         if user:
             if check_password_hash(user.password, request.form['l-password']) == True:
+                session["user"] = user.name
                 return redirect(url_for('user', username = user.name), code=307)
             else:
                 # add password or username wrong flash message

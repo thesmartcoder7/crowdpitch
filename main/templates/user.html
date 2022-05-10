@@ -20,11 +20,6 @@
         <div class="avatar">
           <img src="../static/images/add-user.png" alt="" />
           <p class="username">{{user.name}}</p>
-          <p class="upload">Update Image</p>
-        </div>
-        <div class="upload-image">
-          <input type="file" name="image" id="image" />
-          <input type="submit" value="update" />
         </div>
         <div class="mini-nav">
           <ul>
@@ -2067,7 +2062,7 @@
       </section>
       <section id="share-pitch">
         <h3>Share a pitch</h3>
-        <form action="" id="pitch-form" methods="POST">
+        <form action="{{url_for('pitch')}}" id="pitch-form" method="POST">
           <select id="pitch-category" name="category">
             <option value="" selected>Select Category</option>
             <option value="investors">Investors</option>

@@ -10,6 +10,7 @@ jyserver = "*"
 flask-sqlalchemy = "*"
 flask-migrate = "*"
 psycopg2 = "*"
+requests = "*"
 
 [dev-packages]
 

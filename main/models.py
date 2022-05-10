@@ -11,7 +11,6 @@ class App:
 
     def upvote(self):
         self.up_count = self.up_count + 1
-        print(self.js.document.location.ancestorOrigins)
         self.js.document.querySelector('.upvote').innerText = self.up_count
 
     def downvote(self):

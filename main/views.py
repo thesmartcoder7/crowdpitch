@@ -1,5 +1,6 @@
 from flask import render_template, url_for, redirect, request, session
 from .models import App
+from .models import User
 from . import app
 
 
@@ -11,7 +12,8 @@ def home():
 @app.route('/user/<username>',  methods=["POST", "GET"])
 def user(username):
     if request.method == 'POST':
-        return render_template('user.html', user = username)
+        user = User.query.filter_by(name=username).first()
+        return App.render(render_template('user.html', user = user))
     else:
         return redirect(url_for('home'))
      

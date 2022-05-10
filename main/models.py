@@ -21,14 +21,14 @@ class App:
 class Pitch(db.Model):
     __tablename__ = 'pitches'
     id = db.Column(db.Integer, primary_key = True)
-    category_id = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable = False)
-    category = db.relationship('categories', backref = db.backref('pitch'), lazy = True)
-    comment_id = db.Column(db.Integer, db.ForeignKey('comments.id'), nullable = False)
-    comment = db.relationship('comments', backref = db.backref('pitch'), lazy = True)
-    vote_id = db.Column(db.Integer, db.ForeignKey('votes.id'), nullable = False)
-    vote = db.relationship('votes', backref = db.backref('pitch'), lazy = True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
-    user = db.relationship('users', backref = db.backref('pitch'), lazy = True)
+    # category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable = False)
+    # category = db.relationship('category', backref = db.backref('pitch'), lazy = True)
+    # comment_id = db.Column(db.Integer, db.ForeignKey('comment.id'), nullable = False)
+    # comment = db.relationship('coment', backref = db.backref('pitch'), lazy = True)
+    # vote_id = db.Column(db.Integer, db.ForeignKey('vote.id'), nullable = False)
+    # vote = db.relationship('vote', backref = db.backref('pitch'), lazy = True)
+    # user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable = False)
+    # user = db.relationship('user', backref = db.backref('pitch'), lazy = True)
 
 
 class User(db.Model):
@@ -37,9 +37,25 @@ class User(db.Model):
     name = db.Column(db.String, unique = True)
     email = db.Column(db.String)
     image = db.Column(db.String)
+    password = db.Column(db.String)
 
-    def __init__(self, name):
+    def __init__(self, name, email, password):
         self.name = name
+        self.email = email
+        self.password = password
+
+
+    # @property
+    # def password(self):
+    #     raise AttributeError('You cannot read the password attribute')
+
+    # @password.setter
+    # def password(self):
+    #     self.password = generate_password_hash(self.user_password)
+
+
+    # def verify_password(self,password):
+    #     return check_password_hash(self.pass_secure,password)
     
     def __str__(self) -> str:
         return self.name

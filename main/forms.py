@@ -1,8 +1,9 @@
 from flask import render_template, url_for, redirect, request, session
-from . import app
+from . import app, db
+from .models import User
 from config import Config
 from datetime import timedelta
-
+from werkzeug.security import generate_password_hash,check_password_hash
 
 app.secret_key = Config.SECRET_KEY
 app.permanent_session_lifetime = timedelta(weeks=1)
@@ -10,26 +11,36 @@ app.permanent_session_lifetime = timedelta(weeks=1)
 @app.route('/signup', methods=["POST", "GET"])
 def signup():
     if request.method == 'POST':
-        session.permanent = True
-        session["user"] = request.form["s-name"]
-        session["email"] = request.form["s-email"]
-        session["password"] = request.form["s-password"]
-
-        return redirect(url_for('user', username = session["user"]))
+        present_user = User.query.filter_by(name=request.form['s-name']).first()
+        if present_user:
+            print("user exists")
+            # add a flash message that a user exists
+            return redirect(url_for('home'))
+        else:
+            user = User(request.form["s-name"], request.form["s-email"], generate_password_hash(request.form["s-password"]))
+            db.session.add(user)
+            db.session.commit()
+            return redirect(url_for('user', username = user.name))
     else:
-        return render_template('index.html')
+        return redirect(url_for('home'))
 
 
 
 @app.route('/login', methods=["POST", "GET"])
 def login():
     if request.method == 'POST':
-        session.permanent = True
-        session["email"] = request.form["l-email"]
-        session["password"] = request.form["l-password"]
-        return redirect(url_for('user', username = session["email"]))
+        user = User.query.filter_by(name=request.form['l-name']).first()
+        if user:
+            if check_password_hash(user.password, generate_password_hash(request.form['l-password'])):
+                return redirect(url_for('user', username = user.name))
+            else:
+                # add password or username wrong flash message
+                return redirect(url_for('home'))
+        else:
+             # add signup flashmessage
+            return redirect(url_for('home'))
     else:
-        return render_template('index.html')
+        return redirect(url_for('home'))
 
 
 

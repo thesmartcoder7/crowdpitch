@@ -21,14 +21,18 @@ class App:
 class Pitch(db.Model):
     __tablename__ = 'pitches'
     id = db.Column(db.Integer, primary_key = True)
-    # category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable = False)
-    # category = db.relationship('category', backref = db.backref('pitch'), lazy = True)
-    # comment_id = db.Column(db.Integer, db.ForeignKey('comment.id'), nullable = False)
-    # comment = db.relationship('coment', backref = db.backref('pitch'), lazy = True)
-    # vote_id = db.Column(db.Integer, db.ForeignKey('vote.id'), nullable = False)
-    # vote = db.relationship('vote', backref = db.backref('pitch'), lazy = True)
-    # user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable = False)
-    # user = db.relationship('user', backref = db.backref('pitch'), lazy = True)
+    category_id = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable = False)
+    category = db.relationship('Category', backref = db.backref('pitch'), lazy = True)
+
+    comment_id = db.Column(db.Integer, db.ForeignKey('comments.id'), nullable = False)
+    comment = db.relationship('Comment', backref = db.backref('pitch'), lazy = True)
+
+    vote_id = db.Column(db.Integer, db.ForeignKey('votes.id'), nullable = False)
+    vote = db.relationship('Vote', backref = db.backref('pitch'), lazy = True)
+
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
+    user = db.relationship('User', backref = db.backref('pitch'), lazy = True)
+
 
 
 class User(db.Model):

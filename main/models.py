@@ -21,8 +21,8 @@ class App:
 class Pitch(db.Model):
     __tablename__ = 'pitches'
     id = db.Column(db.Integer, primary_key = True)
-    category = db.Column(db.String(1000),nullable = False)
-    content = db.Column(db.String(1000),nullable = False)
+    category = db.Column(db.String(200),nullable = False)
+    content = db.Column(db.Text,nullable = False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     comments  = db.relationship('Comment', backref = 'pitch', lazy = 'dynamic')
     upvotes = db.relationship('UpVote', backref = 'pitch', lazy = 'dynamic')

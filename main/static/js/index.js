@@ -13,3 +13,4 @@ signupToggle.addEventListener("click", () => {
   loginForm.style.display = "none";
   signupForm.style.display = "flex";
 });
+

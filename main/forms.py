@@ -14,6 +14,7 @@ def signup():
         session["user"] = request.form["s-name"]
         session["email"] = request.form["s-email"]
         session["password"] = request.form["s-password"]
+        
         return redirect(url_for('user', username = session["user"]))
     else:
         return render_template('index.html')

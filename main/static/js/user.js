@@ -5,6 +5,14 @@ let commentToggle = document.querySelectorAll(".show-comments");
 let upload = document.querySelector(".upload");
 let imageUpload = document.querySelector(".upload-image");
 
+// let upvotes = document.querySelectorAll(".up_vote");
+
+// for (let i = 0; i < links.length; i++) {
+//   upvotes[i].addEventListener("click", (e) => {
+//     console.log(e);
+//   });
+// }
+
 for (let i = 0; i < links.length; i++) {
   links[i].addEventListener("click", (e) => {
     if (e.target.textContent === "my pitches") {

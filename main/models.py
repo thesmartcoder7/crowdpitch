@@ -11,11 +11,12 @@ class App:
 
     def upvote(self):
         self.up_count = self.up_count + 1
-        self.js.document.querySelector('.upvote').innerHTML = self.up_count
+        print(self.js.document.location.ancestorOrigins)
+        self.js.document.querySelector('.upvote').innerText = self.up_count
 
     def downvote(self):
         self.down_count = self.down_count + 1
-        self.js.document.querySelector('.downvote').innerHTML = self.down_count
+        self.js.document.querySelector('.downvote').innerText = self.down_count
 
 
 class Pitch(db.Model):

@@ -22,4 +22,12 @@ def user():
         return redirect(url_for('home'))
 
 
+@app.errorhandler(404)
+def four_Ow_four(error):
+    '''
+    Function to render the 404 error page
+    '''
+    return render_template('notfound.html'),404
+
+
 

@@ -72,8 +72,14 @@ main {
 #user-profile .avatar img {
   width: 8vw;
   height: 8vw;
+  object-fit: scale-down;
   border-radius: 50%;
+  border: solid 0.1vw #ff4500;
   margin-bottom: 10%;
+}
+
+#user-profile .avatar .username {
+  text-transform: capitalize;
 }
 
 #user-profile .avatar .upload {

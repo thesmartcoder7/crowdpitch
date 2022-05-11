@@ -4,7 +4,7 @@ from flask_migrate import Migrate
 from config import Config, ProdConfig
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = ProdConfig.DATABASE_URL
+app.config['SQLALCHEMY_DATABASE_URI'] = ProdConfig.SQLALCHEMY_DATABASE_URI
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 

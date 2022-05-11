@@ -45,6 +45,8 @@ def home():
 def user(username):
     present_user = User.query.filter_by(name=session.get('user')).first()
     all_pitches = Pitch.query.all()
+    all_comments = Comment.query.all()
+    all_users = User.query.all()
     user_pitches = Pitch.query.filter_by(user_id=present_user.id).all()
     investors = Pitch.query.filter_by(category = 'investors').all()
     customers = Pitch.query.filter_by(category = 'customers').all()
@@ -60,7 +62,9 @@ def user(username):
             investors = investors,
             customers = customers,
             sales = sales,
-            employees = employees
+            employees = employees,
+            all_comments = all_comments,
+            all_users = all_users
             ))
     else:
         return redirect(url_for('home'))

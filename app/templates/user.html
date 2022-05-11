@@ -86,14 +86,28 @@
                 </form>
                 <h2>what others think of this pitch</h2>
                 <div class="feedback">
+                  <!-- loop -->
+                  {% for comment in all_comments %}
+                  <!-- if comment is related to pitch -->
+                  {% if comment.pitch_id == pitch.id %}
                   <div class="comment-box">
                     <p>
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      {{comment.comment}}
+                      <!-- Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                       Autem fuga ab dolorum ducimus necessitatibus neque dolore
-                      atque ea, commodi beatae?
+                      atque ea, commodi beatae? -->
                     </p>
-                    <p>By: <span>John Doe</span></p>
+                    {% for user in all_users%}
+                    <!--  -->
+                    {% if comment.user_id == user.id %}
+                    <p>By: <span>{{ user.name }}</span></p>
+                    {% endif %}
+                    <!--  -->
+                    {% endfor %}
                   </div>
+                  {% endif %}
+                  <!-- complete check -->
+                  {% endfor %}
                 </div>
               </div>
             </div>
@@ -151,14 +165,28 @@
                 </form>
                 <h2>what others think of this pitch</h2>
                 <div class="feedback">
+                  <!-- loop -->
+                  {% for comment in all_comments %}
+                  <!-- if comment is related to pitch -->
+                  {% if comment.pitch_id == pitch.id %}
                   <div class="comment-box">
                     <p>
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      {{comment.comment}}
+                      <!-- Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                       Autem fuga ab dolorum ducimus necessitatibus neque dolore
-                      atque ea, commodi beatae?
+                      atque ea, commodi beatae? -->
                     </p>
-                    <p>By: <span>John Doe</span></p>
+                    {% for user in all_users%}
+                    <!--  -->
+                    {% if comment.user_id == user.id %}
+                    <p>By: <span>{{ user.name }}</span></p>
+                    {% endif %}
+                    <!--  -->
+                    {% endfor %}
                   </div>
+                  {% endif %}
+                  <!-- complete check -->
+                  {% endfor %}
                 </div>
               </div>
             </div>
@@ -216,14 +244,28 @@
                 </form>
                 <h2>what others think of this pitch</h2>
                 <div class="feedback">
+                  <!-- loop -->
+                  {% for comment in all_comments %}
+                  <!-- if comment is related to pitch -->
+                  {% if comment.pitch_id == pitch.id %}
                   <div class="comment-box">
                     <p>
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      {{comment.comment}}
+                      <!-- Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                       Autem fuga ab dolorum ducimus necessitatibus neque dolore
-                      atque ea, commodi beatae?
+                      atque ea, commodi beatae? -->
                     </p>
-                    <p>By: <span>John Doe</span></p>
+                    {% for user in all_users%}
+                    <!--  -->
+                    {% if comment.user_id == user.id %}
+                    <p>By: <span>{{ user.name }}</span></p>
+                    {% endif %}
+                    <!--  -->
+                    {% endfor %}
                   </div>
+                  {% endif %}
+                  <!-- complete check -->
+                  {% endfor %}
                 </div>
               </div>
             </div>
@@ -281,14 +323,28 @@
                 </form>
                 <h2>what others think of this pitch</h2>
                 <div class="feedback">
+                  <!-- loop -->
+                  {% for comment in all_comments %}
+                  <!-- if comment is related to pitch -->
+                  {% if comment.pitch_id == pitch.id %}
                   <div class="comment-box">
                     <p>
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      {{comment.comment}}
+                      <!-- Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                       Autem fuga ab dolorum ducimus necessitatibus neque dolore
-                      atque ea, commodi beatae?
+                      atque ea, commodi beatae? -->
                     </p>
-                    <p>By: <span>John Doe</span></p>
+                    {% for user in all_users%}
+                    <!--  -->
+                    {% if comment.user_id == user.id %}
+                    <p>By: <span>{{ user.name }}</span></p>
+                    {% endif %}
+                    <!--  -->
+                    {% endfor %}
                   </div>
+                  {% endif %}
+                  <!-- complete check -->
+                  {% endfor %}
                 </div>
               </div>
             </div>
@@ -346,14 +402,28 @@
                 </form>
                 <h2>what others think of this pitch</h2>
                 <div class="feedback">
+                  <!-- loop -->
+                  {% for comment in all_comments %}
+                  <!-- if comment is related to pitch -->
+                  {% if comment.pitch_id == pitch.id %}
                   <div class="comment-box">
                     <p>
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      {{comment.comment}}
+                      <!-- Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                       Autem fuga ab dolorum ducimus necessitatibus neque dolore
-                      atque ea, commodi beatae?
+                      atque ea, commodi beatae? -->
                     </p>
-                    <p>By: <span>John Doe</span></p>
+                    {% for user in all_users%}
+                    <!--  -->
+                    {% if comment.user_id == user.id %}
+                    <p>By: <span>{{ user.name }}</span></p>
+                    {% endif %}
+                    <!--  -->
+                    {% endfor %}
                   </div>
+                  {% endif %}
+                  <!-- complete check -->
+                  {% endfor %}
                 </div>
               </div>
             </div>
@@ -411,14 +481,28 @@
                 </form>
                 <h2>what others think of this pitch</h2>
                 <div class="feedback">
+                  <!-- loop -->
+                  {% for comment in all_comments %}
+                  <!-- if comment is related to pitch -->
+                  {% if comment.pitch_id == pitch.id %}
                   <div class="comment-box">
                     <p>
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      {{comment.comment}}
+                      <!-- Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                       Autem fuga ab dolorum ducimus necessitatibus neque dolore
-                      atque ea, commodi beatae?
+                      atque ea, commodi beatae? -->
                     </p>
-                    <p>By: <span>John Doe</span></p>
+                    {% for user in all_users%}
+                    <!--  -->
+                    {% if comment.user_id == user.id %}
+                    <p>By: <span>{{ user.name }}</span></p>
+                    {% endif %}
+                    <!--  -->
+                    {% endfor %}
                   </div>
+                  {% endif %}
+                  <!-- complete check -->
+                  {% endfor %}
                 </div>
               </div>
             </div>

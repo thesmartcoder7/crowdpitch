@@ -14,7 +14,7 @@
 
 ## Description
 
-This is a simple flask application that allows users to view pitches from other users, upvote or downvote them, and post their own pitches
+This is a simple flask application that allows users to view pitches from other users, upvote or downvote them, and post their own pitches. You can find the UI design file in the static folder.
 .[live site]()
 
 ## Behaviour Driven Development

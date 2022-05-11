@@ -36,7 +36,10 @@ def comment(pitch_id):
 @app.route('/')
 def home():
     all_pitches = Pitch.query.limit(5).all()
-    return render_template('index.html', pitches = all_pitches)
+    if len(all_pitches) != 0:
+        return render_template('index.html', pitches = all_pitches)
+    else:
+         return render_template('index.html', pitches = 'empty')
  
     
 

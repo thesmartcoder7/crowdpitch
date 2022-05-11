@@ -1,7 +1,7 @@
 from flask import url_for, redirect, request, session
 from .. import app, db
 from ..models import User
-from config import Config
+from ...config import Config
 from datetime import timedelta
 from werkzeug.security import generate_password_hash, check_password_hash
 from .greeting import send_email

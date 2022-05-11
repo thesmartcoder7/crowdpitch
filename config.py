@@ -6,6 +6,9 @@ class Config():
     DEBUG = os.getenv('DEBUG')
     SECRET_KEY = os.getenv('SECRET_KEY')
     DATABASE_URL = os.getenv('DATABASE_URL')
+    DATABASE_URL = os.environ.get("DATABASE_URL")
+    if DATABASE_URL and DATABASE_URL.startswith("postgres://"):
+        DATABASE_URL = DATABASE_URL.replace( "postgres://", "postgresql://")
     EMAIL = os.getenv('EMAIL')
     PASSWORD = os.getenv('PASSWORD')
     SMPT_NAME = os.getenv('SMPT_NAME')

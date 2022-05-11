@@ -1,5 +1,5 @@
 import unittest
-from ..models import Pitch, User, Comment, UpVote, DownVote
+from models import Pitch, User, Comment, UpVote, DownVote
 
 
 class PitchTest(unittest.TestCase):

@@ -17,6 +17,7 @@ class App:
         self.js.document.querySelector('.downvote').innerText = self.down_count
 
 
+
 class Pitch(db.Model):
     __tablename__ = 'pitches'
     id = db.Column(db.Integer, primary_key = True)
@@ -55,7 +56,7 @@ class Comment(db.Model):
     id  = db.Column(db.Integer,primary_key = True)
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
     pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
-    comment = db.Column(db.String(500), nullable = False)
+    comment = db.Column(db.Text, nullable = False)
 
 
 

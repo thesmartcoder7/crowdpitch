@@ -1,6 +1,6 @@
 from flask import render_template, url_for, redirect, request, session
 from ..models import App
-from ..models import User, Pitch
+from ..models import User, Pitch, Comment
 from .. import app, db
 
 
@@ -12,6 +12,22 @@ def pitch():
         new_pitch = Pitch(category=request.form['category'], content=request.form['pitch-form'], user_id=present_user.id)       
         db.session.add(new_pitch)
         db.session.commit()
+        return redirect(url_for('user', username = session['user']), code=307)
+    else:
+        return redirect(url_for('user', username = session['user']), code=307)
+
+
+@app.route('/comment/<pitch_id>', methods=['POST', 'GET'])
+def comment(pitch_id):
+    print(pitch_id)
+    print(request.form['comment'])
+    if request.method == 'POST':
+        user = User.query.filter_by(name=session.get('user')).first()
+        print(user.name)
+        new_comment = Comment(comment = request.form['comment'], user_id=user.id, pitch_id=pitch_id)
+        db.session.add(new_comment)
+        db.session.commit()
+        print(new_comment.comment)
         return redirect(url_for('user', username = session['user']), code=307)
     else:
         return redirect(url_for('user', username = session['user']), code=307)

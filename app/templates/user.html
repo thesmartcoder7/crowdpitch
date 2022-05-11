@@ -40,6 +40,8 @@
         <div id="mypitches" class="main-content active">
           <h1>my pitches</h1>
           <div class="pitches">
+            {% if user_pithces != "empty%}
+            <!--  -->
             {% for pitch in user_pitches %}
             <div class="pitch-div">
               <p class="pitch">{{pitch.content}}</p>
@@ -86,6 +88,7 @@
                 </form>
                 <h2>what others think of this pitch</h2>
                 <div class="feedback">
+                  {% if all_comments != "empty"%}
                   <!-- loop -->
                   {% for comment in all_comments %}
                   <!-- if comment is related to pitch -->
@@ -103,10 +106,22 @@
                   {% endif %}
                   <!-- complete check -->
                   {% endfor %}
+                  <!--  -->
+                  {% else %}
+                  <div class="comment-box">
+                    <p>There are no comments for this pitch yet.</p>
+                  </div>
+                  {% endif %}
                 </div>
               </div>
             </div>
             {% endfor %}
+            <!--  -->
+            {% else %}
+            <div class="pitch-div">
+              <p class="pitch">You haven't shared any pitches yet</p>
+            </div>
+            {% endif %}
           </div>
         </div>
 
@@ -114,6 +129,8 @@
         <div id="allpitches" class="main-content">
           <h1>all pitches</h1>
           <div class="pitches">
+            {% if all_pitches != "empty%}
+            <!--  -->
             {% for pitch in all_pitches %}
             <div class="pitch-div">
               <p class="pitch">{{pitch.content}}</p>
@@ -160,6 +177,7 @@
                 </form>
                 <h2>what others think of this pitch</h2>
                 <div class="feedback">
+                  {% if all_comments != "empty"%}
                   <!-- loop -->
                   {% for comment in all_comments %}
                   <!-- if comment is related to pitch -->
@@ -177,10 +195,22 @@
                   {% endif %}
                   <!-- complete check -->
                   {% endfor %}
+                  <!--  -->
+                  {% else %}
+                  <div class="comment-box">
+                    <p>There are no comments for this pitch yet.</p>
+                  </div>
+                  {% endif %}
                 </div>
               </div>
             </div>
             {% endfor %}
+            <!--  -->
+            {% else %}
+            <div class="pitch-div">
+              <p class="pitch">There are no pitches shared yet</p>
+            </div>
+            {% endif %}
           </div>
         </div>
 
@@ -188,6 +218,8 @@
         <div id="investors" class="main-content">
           <h1>investor pitches</h1>
           <div class="pitches">
+            {% if investors != "empty%}
+            <!--  -->
             {% for pitch in investors %}
             <div class="pitch-div">
               <p class="pitch">{{pitch.content}}</p>
@@ -234,6 +266,7 @@
                 </form>
                 <h2>what others think of this pitch</h2>
                 <div class="feedback">
+                  {% if all_comments != "empty"%}
                   <!-- loop -->
                   {% for comment in all_comments %}
                   <!-- if comment is related to pitch -->
@@ -251,10 +284,22 @@
                   {% endif %}
                   <!-- complete check -->
                   {% endfor %}
+                  <!--  -->
+                  {% else %}
+                  <div class="comment-box">
+                    <p>There are no comments for this pitch yet.</p>
+                  </div>
+                  {% endif %}
                 </div>
               </div>
             </div>
             {% endfor %}
+            <!--  -->
+            {% else %}
+            <div class="pitch-div">
+              <p class="pitch">There are no pitches for this category yet</p>
+            </div>
+            {% endif %}
           </div>
         </div>
 
@@ -262,6 +307,8 @@
         <div id="customers" class="main-content">
           <h1>customer pitches</h1>
           <div class="pitches">
+            {% if customers != "empty%}
+            <!--  -->
             {% for pitch in customers %}
             <div class="pitch-div">
               <p class="pitch">{{pitch.content}}</p>
@@ -308,6 +355,7 @@
                 </form>
                 <h2>what others think of this pitch</h2>
                 <div class="feedback">
+                  {% if all_comments != "empty"%}
                   <!-- loop -->
                   {% for comment in all_comments %}
                   <!-- if comment is related to pitch -->
@@ -325,10 +373,22 @@
                   {% endif %}
                   <!-- complete check -->
                   {% endfor %}
+                  <!--  -->
+                  {% else %}
+                  <div class="comment-box">
+                    <p>There are no comments for this pitch yet.</p>
+                  </div>
+                  {% endif %}
                 </div>
               </div>
             </div>
             {% endfor %}
+            <!--  -->
+            {% else %}
+            <div class="pitch-div">
+              <p class="pitch">There are no pitches for this category yet</p>
+            </div>
+            {% endif %}
           </div>
         </div>
 
@@ -336,6 +396,8 @@
         <div id="sales" class="main-content">
           <h1>sales pitches</h1>
           <div class="pitches">
+            {% if sales != "empty%}
+            <!--  -->
             {% for pitch in sales %}
             <div class="pitch-div">
               <p class="pitch">{{pitch.content}}</p>
@@ -368,7 +430,7 @@
                   </svg>
                   <span>0</span>
                 </div>
-                <p class="show-comments">comments</p>
+                <p class="show-comments">show comments</p>
               </div>
               <hr />
               <div class="all-comments">
@@ -382,6 +444,7 @@
                 </form>
                 <h2>what others think of this pitch</h2>
                 <div class="feedback">
+                  {% if all_comments != "empty"%}
                   <!-- loop -->
                   {% for comment in all_comments %}
                   <!-- if comment is related to pitch -->
@@ -399,10 +462,22 @@
                   {% endif %}
                   <!-- complete check -->
                   {% endfor %}
+                  <!--  -->
+                  {% else %}
+                  <div class="comment-box">
+                    <p>There are no comments for this pitch yet.</p>
+                  </div>
+                  {% endif %}
                 </div>
               </div>
             </div>
             {% endfor %}
+            <!--  -->
+            {% else %}
+            <div class="pitch-div">
+              <p class="pitch">There are no pitches for this category yet</p>
+            </div>
+            {% endif %}
           </div>
         </div>
 
@@ -410,6 +485,8 @@
         <div id="employees" class="main-content">
           <h1>employee pitches</h1>
           <div class="pitches">
+            {% if employees != "empty%}
+            <!--  -->
             {% for pitch in employees %}
             <div class="pitch-div">
               <p class="pitch">{{pitch.content}}</p>
@@ -456,6 +533,7 @@
                 </form>
                 <h2>what others think of this pitch</h2>
                 <div class="feedback">
+                  {% if all_comments != "empty"%}
                   <!-- loop -->
                   {% for comment in all_comments %}
                   <!-- if comment is related to pitch -->
@@ -473,10 +551,22 @@
                   {% endif %}
                   <!-- complete check -->
                   {% endfor %}
+                  <!--  -->
+                  {% else %}
+                  <div class="comment-box">
+                    <p>There are no comments for this pitch yet.</p>
+                  </div>
+                  {% endif %}
                 </div>
               </div>
             </div>
             {% endfor %}
+            <!--  -->
+            {% else %}
+            <div class="pitch-div">
+              <p class="pitch">There are no pitches for this category yet</p>
+            </div>
+            {% endif %}
           </div>
         </div>
       </section>

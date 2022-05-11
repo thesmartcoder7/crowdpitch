@@ -8,7 +8,6 @@ from .. import app, db
 def pitch():
     if request.method == "POST":
         present_user = User.query.filter_by(name=session.get('user')).first()
-        print(session.get('user'))
         new_pitch = Pitch(category=request.form['category'], content=request.form['pitch-form'], user_id=present_user.id)       
         db.session.add(new_pitch)
         db.session.commit()
@@ -23,11 +22,9 @@ def comment(pitch_id):
     print(request.form['comment'])
     if request.method == 'POST':
         user = User.query.filter_by(name=session.get('user')).first()
-        print(user.name)
         new_comment = Comment(comment = request.form['comment'], user_id=user.id, pitch_id=pitch_id)
         db.session.add(new_comment)
         db.session.commit()
-        print(new_comment.comment)
         return redirect(url_for('user', username = session['user']), code=307)
     else:
         return redirect(url_for('user', username = session['user']), code=307)
@@ -47,14 +44,39 @@ def home():
 @app.route('/user/<username>',  methods=["POST", "GET"])
 def user(username):
     present_user = User.query.filter_by(name=session.get('user')).first()
+
     all_pitches = Pitch.query.all()
+    if len(all_pitches) == 0:
+        all_pitches = "empty"
+
     all_comments = Comment.query.all()
+    if len(all_comments) == 0:
+        all_comments = "empty"
+
     all_users = User.query.all()
+    if len(all_users) == 0:
+        all_users = "empty"
+
     user_pitches = Pitch.query.filter_by(user_id=present_user.id).all()
+    if len(user_pitches) == 0:
+        user_pitches = "empty"
+
     investors = Pitch.query.filter_by(category = 'investors').all()
+    if len(investors) == 0:
+        investors = "empty"
+
     customers = Pitch.query.filter_by(category = 'customers').all()
+    if len(customers) == 0:
+        customers = "empty"
+
     sales = Pitch.query.filter_by(category = 'sales').all()
+    if len(sales) == 0:
+        sales = "empty"
+
     employees = Pitch.query.filter_by(category = 'employees').all()
+    if len(employees) == 0:
+        employees = "empty"
+
     if request.method == 'POST':
         user = User.query.filter_by(name=username).first()
         return App.render(render_template(

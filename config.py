@@ -10,3 +10,7 @@ class Config():
     PASSWORD = os.getenv('PASSWORD')
     SMPT_NAME = os.getenv('SMPT_NAME')
 
+
+class ProdConfig(Config):
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+

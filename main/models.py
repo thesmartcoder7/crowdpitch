@@ -1,5 +1,4 @@
-from . import app
-from . import db
+from . import app, db
 import jyserver.Flask as jsf
 
 

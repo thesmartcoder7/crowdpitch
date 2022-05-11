@@ -1,6 +1,6 @@
 # CrowdPitch
 
-![Project Image](main/static/images/readme-image.png)
+![Project Image](app/static/images/readme-image.png)
 
 ### By: Samuel Martins
 

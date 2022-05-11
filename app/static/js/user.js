@@ -12,27 +12,27 @@ let pitch_form = document.querySelector("#pitch-form");
 //   pitch_form.reset();
 // });
 
-// let upvotes = document.querySelectorAll(".thumbs-up");
+let upvotes = document.querySelectorAll(".thumbs-up");
 
-// for (let i = 0; i < links.length; i++) {
-//   upvotes[i].addEventListener("click", (e) => {
-//     digit = e.target.parentElement.nextElementSibling.textContent;
-//     integer = parseInt(digit);
-//     integer += 1;
-//     e.target.parentElement.nextElementSibling.textContent = integer;
-//   });
-// }
+for (let i = 0; i < links.length; i++) {
+  upvotes[i].addEventListener("click", (e) => {
+    digit = e.target.parentElement.nextElementSibling.textContent;
+    integer = parseInt(digit);
+    integer += 1;
+    e.target.parentElement.nextElementSibling.textContent = integer;
+  });
+}
 
-// let downvotes = document.querySelectorAll(".thumbs-down");
+let downvotes = document.querySelectorAll(".thumbs-down");
 
-// for (let i = 0; i < links.length; i++) {
-//   downvotes[i].addEventListener("click", (e) => {
-//     digit = e.target.parentElement.nextElementSibling.textContent;
-//     integer = parseInt(digit);
-//     integer += 1;
-//     e.target.parentElement.nextElementSibling.textContent = integer;
-//   });
-// }
+for (let i = 0; i < links.length; i++) {
+  downvotes[i].addEventListener("click", (e) => {
+    digit = e.target.parentElement.nextElementSibling.textContent;
+    integer = parseInt(digit);
+    integer += 1;
+    e.target.parentElement.nextElementSibling.textContent = integer;
+  });
+}
 
 for (let i = 0; i < links.length; i++) {
   links[i].addEventListener("click", (e) => {

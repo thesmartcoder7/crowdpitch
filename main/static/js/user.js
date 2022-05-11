@@ -11,11 +11,26 @@ let pitch_form = document.querySelector("#pitch-form");
 //   e.preventDefault();
 //   pitch_form.reset();
 // });
-// let upvotes = document.querySelectorAll(".up_vote");
+
+// let upvotes = document.querySelectorAll(".thumbs-up");
 
 // for (let i = 0; i < links.length; i++) {
 //   upvotes[i].addEventListener("click", (e) => {
-//     console.log(e);
+//     digit = e.target.parentElement.nextElementSibling.textContent;
+//     integer = parseInt(digit);
+//     integer += 1;
+//     e.target.parentElement.nextElementSibling.textContent = integer;
+//   });
+// }
+
+// let downvotes = document.querySelectorAll(".thumbs-down");
+
+// for (let i = 0; i < links.length; i++) {
+//   downvotes[i].addEventListener("click", (e) => {
+//     digit = e.target.parentElement.nextElementSibling.textContent;
+//     integer = parseInt(digit);
+//     integer += 1;
+//     e.target.parentElement.nextElementSibling.textContent = integer;
 //   });
 // }
 

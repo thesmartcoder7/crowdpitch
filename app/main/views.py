@@ -1,7 +1,7 @@
 from flask import render_template, url_for, redirect, request, session
-from .models import App
-from .models import User, Pitch
-from . import app, db
+from ..models import App
+from ..models import User, Pitch
+from .. import app, db
 
 
 @app.route('/pitch', methods=['POST','GET'])

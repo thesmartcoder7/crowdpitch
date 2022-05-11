@@ -1,5 +1,6 @@
 import unittest
-from models import Pitch, User, Comment, UpVote, DownVote
+from ..app.models import Pitch, User, Comment, UpVote, DownVote
+# from  import Pitch, User, Comment, UpVote, DownVote
 
 
 class PitchTest(unittest.TestCase):
@@ -18,7 +19,7 @@ class PitchTest(unittest.TestCase):
 
 
 
-class User(unittest.TestCase):
+class UserTest(unittest.TestCase):
     '''
     Test Class to test the behaviour of the Article class
     '''
@@ -33,7 +34,7 @@ class User(unittest.TestCase):
 
 
 
-class Comment(unittest.TestCase):
+class CommentTest(unittest.TestCase):
     '''
     Test Class to test the behaviour of the Article class
     '''
@@ -48,7 +49,7 @@ class Comment(unittest.TestCase):
 
 
 
-class UpVote(unittest.TestCase):
+class UpVoteTest(unittest.TestCase):
     '''
     Test Class to test the behaviour of the Article class
     '''
@@ -64,7 +65,7 @@ class UpVote(unittest.TestCase):
 
 
 
-class DownVote(unittest.TestCase):
+class DownVoteTest(unittest.TestCase):
     '''
     Test Class to test the behaviour of the Article class
     '''

@@ -19,7 +19,8 @@ def pitch():
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    all_pitches = Pitch.query.limit(5).all()
+    return render_template('index.html', pitches = all_pitches)
 
 
 @app.route('/user/<username>',  methods=["POST", "GET"])

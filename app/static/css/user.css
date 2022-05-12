@@ -253,6 +253,13 @@ main {
   justify-content: flex-start;
 }
 
+#main-view .main-content .pitches .pitch-div .stats .likes button,
+#main-view .main-content .pitches .pitch-div .stats .dislikes button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
 #main-view .main-content .pitches .pitch-div .stats .likes svg,
 #main-view .main-content .pitches .pitch-div .stats .dislikes svg {
   color: #e77d56;

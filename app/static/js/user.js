@@ -7,32 +7,14 @@ let imageUpload = document.querySelector(".upload-image");
 
 let pitch_form = document.querySelector("#pitch-form");
 
-// pitch_form.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   pitch_form.reset();
-// });
+// let voteforms = document.querySelectorAll(".votesform");
+// print(voteforms);
 
-let upvotes = document.querySelectorAll(".thumbs-up");
-
-for (let i = 0; i < links.length; i++) {
-  upvotes[i].addEventListener("click", (e) => {
-    digit = e.target.parentElement.nextElementSibling.textContent;
-    integer = parseInt(digit);
-    integer += 1;
-    e.target.parentElement.nextElementSibling.textContent = integer;
-  });
-}
-
-let downvotes = document.querySelectorAll(".thumbs-down");
-
-for (let i = 0; i < links.length; i++) {
-  downvotes[i].addEventListener("click", (e) => {
-    digit = e.target.parentElement.nextElementSibling.textContent;
-    integer = parseInt(digit);
-    integer += 1;
-    e.target.parentElement.nextElementSibling.textContent = integer;
-  });
-}
+// for (let i = 0; i < voteforms.length; i++) {
+//   voteforms[i].addEventListener("submit", (e) => {
+//     e.preventDefault();
+//   });
+// }
 
 for (let i = 0; i < links.length; i++) {
   links[i].addEventListener("click", (e) => {
@@ -110,13 +92,3 @@ for (let i = 0; i < commentToggle.length; i++) {
     }
   });
 }
-
-upload.addEventListener("click", (e) => {
-  if (imageUpload.style.display != "flex") {
-    imageUpload.style.display = "flex";
-    e.target.textContent = "Cancel";
-  } else {
-    imageUpload.style.display = "none";
-    e.target.textContent = "Upload Image";
-  }
-});

@@ -1,6 +1,6 @@
+from flask import session
 from . import app, db
 import jyserver.Flask as jsf
-
 
 @jsf.use(app)
 class App:
@@ -10,12 +10,23 @@ class App:
 
     def upvote(self):
         self.up_count = self.up_count + 1
+        print(self.up_count)
         self.js.document.querySelector('.upvote').innerText = self.up_count
 
     def downvote(self):
         self.down_count = self.down_count + 1
         self.js.document.querySelector('.downvote').innerText = self.down_count
 
+    # def add_vote(self):
+    #     current_user = session('user')
+    #     user = User.query.filter_by(name=current_user)
+    #     new_vote = UpVote(pitch_id=12, user_id=user.id, upvote=1)
+    #     print(f"\n\n12, {user.id}\n\n")
+    #     db.session.add(new_vote)
+    #     db.session.commit()
+
+
+    
 
 
 class Pitch(db.Model):

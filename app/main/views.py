@@ -1,7 +1,37 @@
+from crypt import methods
 from flask import render_template, url_for, redirect, request, session
-from ..models import App
-from ..models import User, Pitch, Comment
+from ..models import User, Pitch, Comment, UpVote, DownVote
 from .. import app, db
+
+
+
+@app.route('/upvote/<pitch_id>',  methods=['POST','GET'])
+def add_vote(pitch_id):
+    if request.method == 'POST':
+        user = User.query.filter_by(name= session.get('user')).first()
+        new_vote = UpVote(pitch_id=pitch_id, user_id=user.id, upvote=1)
+        db.session.add(new_vote)
+        db.session.commit()
+
+        return redirect(url_for('user', username = session['user']), code=307)
+    else:
+         return redirect(url_for('user', username = session['user']), code=307)
+
+
+
+@app.route('/dislike/<pitch_id>',  methods=['POST','GET'])
+def add_dislike(pitch_id):
+    if request.method == 'POST':
+        user = User.query.filter_by(name= session.get('user')).first()
+        new_vote = DownVote(pitch_id=pitch_id, user_id=user.id, downvote=1)
+        db.session.add(new_vote)
+        db.session.commit()
+
+        return redirect(url_for('user', username = session['user']), code=307)
+    else:
+         return redirect(url_for('user', username = session['user']), code=307)
+
+
 
 
 @app.route('/pitch', methods=['POST','GET'])
@@ -39,7 +69,6 @@ def home():
          return render_template('index.html', pitches = 'empty')
  
     
-
 
 @app.route('/user/<username>',  methods=["POST", "GET"])
 def user(username):
@@ -79,7 +108,7 @@ def user(username):
 
         if request.method == 'POST':
             user = User.query.filter_by(name=username).first()
-            return App.render(render_template(
+            return render_template(
                 'user.html', 
                 user = user, 
                 all_pitches = all_pitches,
@@ -90,7 +119,7 @@ def user(username):
                 employees = employees,
                 all_comments = all_comments,
                 all_users = all_users
-                ))
+                )
         else:
             return redirect(url_for('home'))
     else:

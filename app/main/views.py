@@ -44,56 +44,57 @@ def home():
 @app.route('/user/<username>',  methods=["POST", "GET"])
 def user(username):
     present_user = User.query.filter_by(name=session.get('user')).first()
+    if present_user:
+        all_pitches = Pitch.query.all()
+        if len(all_pitches) == 0:
+            all_pitches = "empty"
 
-    all_pitches = Pitch.query.all()
-    if len(all_pitches) == 0:
-        all_pitches = "empty"
+        all_comments = Comment.query.all()
+        if len(all_comments) == 0:
+            all_comments = "empty"
 
-    all_comments = Comment.query.all()
-    if len(all_comments) == 0:
-        all_comments = "empty"
+        all_users = User.query.all()
+        if len(all_users) == 0:
+            all_users = "empty"
 
-    all_users = User.query.all()
-    if len(all_users) == 0:
-        all_users = "empty"
+        user_pitches = Pitch.query.filter_by(user_id=present_user.id).all()
+        if len(user_pitches) == 0:
+            user_pitches = "empty"
 
-    user_pitches = Pitch.query.filter_by(user_id=present_user.id).all()
-    if len(user_pitches) == 0:
-        user_pitches = "empty"
+        investors = Pitch.query.filter_by(category = 'investors').all()
+        if len(investors) == 0:
+            investors = "empty"
 
-    investors = Pitch.query.filter_by(category = 'investors').all()
-    if len(investors) == 0:
-        investors = "empty"
+        customers = Pitch.query.filter_by(category = 'customers').all()
+        if len(customers) == 0:
+            customers = "empty"
 
-    customers = Pitch.query.filter_by(category = 'customers').all()
-    if len(customers) == 0:
-        customers = "empty"
+        sales = Pitch.query.filter_by(category = 'sales').all()
+        if len(sales) == 0:
+            sales = "empty"
 
-    sales = Pitch.query.filter_by(category = 'sales').all()
-    if len(sales) == 0:
-        sales = "empty"
+        employees = Pitch.query.filter_by(category = 'employees').all()
+        if len(employees) == 0:
+            employees = "empty"
 
-    employees = Pitch.query.filter_by(category = 'employees').all()
-    if len(employees) == 0:
-        employees = "empty"
-
-    if request.method == 'POST':
-        user = User.query.filter_by(name=username).first()
-        return App.render(render_template(
-            'user.html', 
-            user = user, 
-            all_pitches = all_pitches,
-            user_pitches = user_pitches,
-            investors = investors,
-            customers = customers,
-            sales = sales,
-            employees = employees,
-            all_comments = all_comments,
-            all_users = all_users
-            ))
+        if request.method == 'POST':
+            user = User.query.filter_by(name=username).first()
+            return App.render(render_template(
+                'user.html', 
+                user = user, 
+                all_pitches = all_pitches,
+                user_pitches = user_pitches,
+                investors = investors,
+                customers = customers,
+                sales = sales,
+                employees = employees,
+                all_comments = all_comments,
+                all_users = all_users
+                ))
+        else:
+            return redirect(url_for('home'))
     else:
         return redirect(url_for('home'))
-     
 
 @app.errorhandler(404)
 def four_Ow_four(error):

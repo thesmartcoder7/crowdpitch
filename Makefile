@@ -10,3 +10,6 @@ migrate:
 
 upgrade:
 	flask db upgrade
+
+test:
+	python -m tests.tests
